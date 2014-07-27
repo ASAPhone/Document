@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Battery</title>
+<script>
+// 取得電池狀態(目前FIREFOX才能運作順利~)
+var battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery;
+function getstate(){
+	var level=battery.level * 100;
+    alert("Battery charging: "+battery.charging+"\n Battery level:"+level+"\n Battery discharging time:"+battery.dischargingTime);
+
+}
+
+// 插電與否的改變~
+battery.addEventListener("chargingchange", function(e) {
+  alert("Battery charge change: "+battery.charging);
+}, false);
+</script>
+
+</head>
+
+<body>
+	<h1>Battery API</h1>
+<h3>說明</h3>
+<p>提供系統電池充電容量的資訊。</p>
+<h3>應用</h3>
+<p>可調整 Apps 的資源耗用量，在電力偏低時縮減耗電量；或可在電力耗盡之前儲存檔案，避免資料遺失。</p>
+<h3>Demo測試</h3>
+<p>可測試插電與否的改變</p>
+<h3>Sample Code</h3>
+<code>
+var battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery;<br>
+
+	var level=battery.level * 100;<br>
+    alert("Battery charging: "+battery.charging+"\n Battery level:"+level+"\n Battery discharging time:"+battery.dischargingTime);
+
+
+</code>
+<h3>補充說明</h3>
+<p>目前只有FIREFOX支援。</p>
+<input type="button" value="Get battery state" onClick="getstate()">
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<div id="jsonp-test">
+</div>
+
+<!-- Javascript Include Start -->
+
+<!-- jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- Javascript Include End -->
+    
+<!-- Javascript Page Start -->
+<script>
+	$(document).ready(function(e) {	
+		
+		var lat = '23.58';
+		var lng = '120.58';
+		var timestamp = new Date().getTime() / 1000;
+		var google_api_key = 'AIzaSyBp37T05asGoDR1Yxfs4NQ3GrvQqSBD0Os';
+		var google_api = 'https://maps.googleapis.com/maps/api/timezone/json';
+		
+		var src = google_api + '?location='+lat+','+lng+'&timestamp='+timestamp+'&key='+google_api_key;
+		
+		$.getJSON(src, function(data)
+		{
+			var html  = "TimeZoneID: "+ data.timeZoneId + "<br/>";
+			    html += "TimeZoneName: "+ data.timeZoneName;
+			
+			$("#jsonp-test").html(html);
+		});
+		
+		
+	});
+</script>
+<!-- Javascript Page End -->
+</body>
+</html>

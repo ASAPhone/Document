@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Ambient Light Events</title>
+        <meta name="viewport" 
+     content="width=device-width, initial-scale=1.0, user-scalable=no">
+</head>
+
+<body>
+    <input type='text' id='statusBox' value='default'> lux
+    
+    <script>
+        window.addEventListener('devicelight', function(event) {
+          document.querySelector('#statusBox').value = event.value;
+        });
+</script>
+</body>
+</html>

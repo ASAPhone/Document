@@ -1,0 +1,31 @@
+{
+	"name": "DASM",
+	"description": "Device Auto Set Mode",
+	"launch_path": "/index.html",
+
+	"icons":
+	{
+		"128": "/img/icons_version1.jpg"
+	},
+	
+	"developer":
+	{
+		"name": "Do the best, Keep forever",
+		"url": "http://www.nutn.edu.tw/index-ch.htm"
+	},
+	
+	"default_locale": "en",
+	
+	"permissions":
+	{
+		"geolocation":
+		{
+			"description": "Obtain the current location of the user."
+		}
+	},
+	
+	"chrome":
+	{
+		"navigation": "true"
+	}
+}

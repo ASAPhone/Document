@@ -1,0 +1,58 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Page Visability</title>
+
+
+<script>
+var hidden, state, visibilityChange; 
+if (typeof document.hidden !== "undefined") {
+  hidden = "hidden";
+  visibilityChange = "visibilitychange";
+  state = "visibilityState";
+} else if (typeof document.mozHidden !== "undefined") {
+  hidden = "mozHidden";
+  visibilityChange = "mozvisibilitychange";
+  state = "mozVisibilityState";
+} else if (typeof document.msHidden !== "undefined") {
+  hidden = "msHidden";
+  visibilityChange = "msvisibilitychange";
+  state = "msVisibilityState";
+} else if (typeof document.webkitHidden !== "undefined") {
+  hidden = "webkitHidden";
+  visibilityChange = "webkitvisibilitychange";
+  state = "webkitVisibilityState";
+}
+// Add a listener that constantly changes the title
+document.addEventListener(visibilityChange, function() {
+	document.title = document[state];
+}, false);
+
+// Set the initial value
+document.title = document[state]
+</script>
+
+</head>
+
+<body>
+<h1>Page Visibility</h1>
+<h3>說明</h3>
+<p>可判斷使用者是否正在觀看某頁面</p>
+<h3>應用</h3>
+<p>當使用者離開某頁面時(ex 看別的分頁、視窗縮小)，可以指定影片/動畫停止播放以增加效能。</p>
+<h3>Demo測試</h3>
+<p>當觀看別的分頁時，分頁標題會改變，以判斷當頁面是否正在被使用者觀看。</p>
+<h3>Sample Code</h3>
+<pre>
+if (typeof document.hidden !== "undefined") {
+  hidden = "hidden";
+  visibilityChange = "visibilitychange";
+  state = "visibilityState";
+}
+
+
+</pre>
+</body>
+</html>

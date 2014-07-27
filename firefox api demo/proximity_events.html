@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Proximity Events</title>
+        <meta name="viewport" 
+     content="width=device-width, initial-scale=1.0, user-scalable=no">
+</head>
+
+<body>
+    <input type='text' id='statusBox' value='default'>
+    
+    <script>
+        window.addEventListener('userproximity', function(event) {
+        if (event.near) {
+            document.querySelector('#statusBox').value = "Near!";
+        } else {
+            document.querySelector('#statusBox').value = "Far";
+        }
+        });
+</script>
+</body>
+</html>

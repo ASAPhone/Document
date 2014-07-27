@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Battery API</title>
+	<meta charset="UTF-8" />
+	<script src="/js/Battery.js"></script>
+	<script src="/js/SetScreenBrightness.js"></script>
+	<script src="/js/SetVibration.js"></script>
+</head>
+<body>
+
+<script>
+
+if(battery.charging){
+	SetVibration(true);
+	SetScreenBrightness(0.95);
+}
+else{
+	if(battery.level < 0.15){
+		SetVibration(false);
+		SetScreenBrightness(0.3);
+	}
+	else{
+		SetVibration(true);
+		if(0.5 >= battery.level && battery.level >= 0.15){
+			SetScreenBrightness(0.7);
+		}
+		else{
+			SetScreenBrightness(0.9);
+		}
+	}
+}
+</script>
+
+</body>
+</html>
